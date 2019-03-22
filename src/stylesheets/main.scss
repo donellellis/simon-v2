@@ -31,34 +31,58 @@
 }
 
 /* gameboard buttons */
-.buttonTopLeft{
+.buttonTopLeft, .buttonTopLeftIlluminated{
   @include buttonDims;
-  background-color: rgb(40, 160, 140);
+  background-color: $buttonColor1;
   border-top-left-radius: 100%;
 }
 
-.buttonTopRight{
+.buttonTopLeftIlluminated{
+  z-index: 2;
+  background-color: lighten($buttonColor1, 40%);
+  box-shadow: 
+  inset 0 0 50px 10px $buttonColor1,
+  inset 0 0 60px 50px lighten($buttonColor1, 20%);
+}
+
+.buttonTopRight, .buttonTopRightIlluminated{
   @include buttonDims;
-  background-color: #F53240;
+  background-color:$buttonColor2;
   border-top-right-radius: 100%;
+}
+
+.buttonTopRightIlluminated{
+  z-index: 2;
+  background-color: lighten($buttonColor2, 40%);
+  box-shadow: 
+  inset 0 0 50px 10px $buttonColor2,
+  inset 0 0 60px 50px lighten($buttonColor2, 20%);
 }
 
 .buttonBottomLeft, .buttonBottomLeftIlluminated{
   @include buttonDims;
-  background-color: #F9BE02;
+  background-color: $buttonColor4;
   border-bottom-left-radius: 100%;
 }
 
 .buttonBottomLeftIlluminated{
   z-index: 2;
-  background-color:  rgb(253, 247, 223);
+  background-color: lighten($buttonColor4, 40%);
   box-shadow: 
-  inset 0 0 50px 10px  #F9BE02,
-  inset 0 0 60px 50px rgb(252, 226, 140);
+  inset 0 0 50px 10px $buttonColor4,
+  inset 0 0 60px 50px lighten($buttonColor4, 20%);
 }
 
-.buttonBottomRight{
+.buttonBottomRight, .buttonBottomRightIlluminated{
   @include buttonDims;
-  background-color: #7cdbd5;
+  background-color: $buttonColor3;
   border-bottom-right-radius: 100%;
+}
+
+.buttonBottomRightIlluminated{
+  z-index: 2;
+  background-color: lighten($buttonColor3, 40%);
+  box-shadow: 
+  inset 0 0 50px 10px $buttonColor3,
+  inset 0 0 60px 50px lighten($buttonColor3, 20%);
 }

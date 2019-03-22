@@ -1,68 +1,38 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Simon
 
-## Available Scripts
+Simon is a classic memory game first launched at Studio 54 in 1978. This groovy pop culture symbol has been deployed as a web-based game. The program displays a randomized sequence of illuminated colors and the player's goal is to repeat the sequence by clicking the correct color buttons on the gameboard to win and advance to the next level.
 
-In the project directory, you can run:
+## Getting Started
 
-### `npm start`
+To get started, navigate to https://donellellis.github.io/simon/#, click the play button and the game launches.
+The gameboard displays a sequence of random illuminated colors.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![Simon UI](https://i.imgur.com/D2K20I0.png)
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Repeat the sequence by clicking the correct color buttons on the gameboard.
 
-### `npm test`
+## Built With
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* React
+* SASS
 
-### `npm run build`
+## Features
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Current
+* One game level that displays a unique, randomly generated sequence each time the page is reloaded.
+* A player can attemt to match the sequence once and is prompted when a match is successful.
+* A player is prompted to try again if the attempt is unsuccessful.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### Future
+* A player will be able to advance to the next level when a match is successful
+* The game will include 5  levels, each building in complexity by adding one addiitonal item to the sequence
+* A player will be able to attempt a level an infinite number of times until successful without needing to refresh the page
+* After a player clicks the play button, the user interface will display a ring around the gameboard that flashes three times before the computer displays the random sequence and again to prompt the player's input.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Contributing
 
-### `npm run eject`
+Contributions not accepted at this time.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Authors
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+* **Donell Ellis** https://github.com/donellellis
