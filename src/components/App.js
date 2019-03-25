@@ -7,7 +7,8 @@ class App extends Component {
     this.state = {
       sequence: [],
       userSequence: [],
-      selectedNumber: null
+      selectedNumber: null,
+      currentLevel: 1
     }
   }
 
@@ -26,7 +27,6 @@ class App extends Component {
   addButtonToSequence = () => {
     if (this.state.userSequence.length < this.state.sequence.length - 1){
       this.state.userSequence.push(this.state.selectedNumber)
-      console.log('this is the user sequence: ' + this.state.userSequence + 'this is the computer sequence' + this.state.sequence)
     }
     else if (this.state.userSequence.length === this.state.sequence.length - 1){
       this.state.userSequence.push(this.state.selectedNumber)
@@ -37,11 +37,25 @@ class App extends Component {
 
   checkForMatch = () => {
     setTimeout(() => {
-      if (this.state.userSequence.toString() === this.state.sequence.toString()) {
-        alert('you found a match')
+       if ( this.state.currentLevel === 5 && this.state.userSequence.toString() === this.state.sequence.toString()){
+         this.setState({
+           currentLevel: 1
+         }, () => {
+           alert('you win! all levels have been completed')
+         })
+      }
+      else if (this.state.userSequence.toString() === this.state.sequence.toString()) {
+        this.setState({
+          currentLevel: this.state.currentLevel + 1
+        }, () => {
+          alert('you found a match! advance to the next level: ' + this.state.currentLevel)
+          this.playSequence()
+        })
+        
       }
       else {
-        alert('try again')
+        alert('whomp! click to try again')
+        this.playSequence()
       }
     }
     , 1000)
@@ -54,13 +68,13 @@ class App extends Component {
   }
 
   playSequence = () => {
-    // selects 4 random numbers between 0 and 4 and adds to sequence
-    let sequenceLevelOne = []
-    for (let i = 0; i < 4; i++){
-      sequenceLevelOne.push(Math.floor((Math.random() * 4) + 0))
+    // selects 3 random numbers between 0 and 4 and adds to sequence
+    let sequenceLevel = []
+    for (let i = 0; i < this.state.currentLevel + 2; i++){
+      sequenceLevel.push(Math.floor((Math.random() * 4) + 0))
     }
     this.setState({
-      sequence: sequenceLevelOne
+      sequence: sequenceLevel
     }, () => this.setSequenceDelay(this.resetUserSequence))
   }
 
@@ -113,7 +127,9 @@ class App extends Component {
           />
         </main>
         <nav>
+          <h1 className='buttonNav'>{this.state.currentLevel}</h1>
           <button className='buttonNav fas fa-play' onClick={this.playSequence}/>
+          <a className='buttonNav' href='https://github.com/donellellis/simon-v2' target='blank'>?</a>
         </nav>
       </div>
     );
