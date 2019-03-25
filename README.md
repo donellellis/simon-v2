@@ -4,10 +4,10 @@ Simon is a classic memory game first launched at Studio 54 in 1978. This groovy 
 
 ## Getting Started
 
-To get started, navigate to https://donellellis.github.io/simon/#, click the play button and the game launches.
+To get started, navigate to http://simon-app.surge.sh/, click the play button and the game launches.
 The gameboard displays a sequence of random illuminated colors.
 
-![Simon UI](https://i.imgur.com/D2K20I0.png)
+![Simon UI](https://media.giphy.com/media/8FoLVPcuZgSWyMo6Qs/giphy.gif)
 
 Repeat the sequence by clicking the correct color buttons on the gameboard.
 
@@ -19,15 +19,10 @@ Repeat the sequence by clicking the correct color buttons on the gameboard.
 ## Features
 
 ### Current
-* One game level that displays a unique, randomly generated sequence each time the page is reloaded.
-* A player can attemt to match the sequence once and is prompted when a match is successful.
+* Five game levels that display a unique, randomly generated sequence each time the user attempts the level.
+* As the player advances, the game sequence increases in length.
+* A player can attemt to match the sequence multiple times and is prompted to advance to the next level when a match is successful.
 * A player is prompted to try again if the attempt is unsuccessful.
-
-### Future
-* A player will be able to advance to the next level when a match is successful
-* The game will include 5  levels, each building in complexity by adding one addiitonal item to the sequence
-* A player will be able to attempt a level an infinite number of times until successful without needing to refresh the page
-* After a player clicks the play button, the user interface will display a ring around the gameboard that flashes three times before the computer displays the random sequence and again to prompt the player's input.
 
 ## Contributing
 
