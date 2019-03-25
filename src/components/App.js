@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Button from './Button'
+import Modal from './Modal'
 
 class App extends Component {
   constructor(props){
@@ -8,8 +9,17 @@ class App extends Component {
       sequence: [],
       userSequence: [],
       selectedNumber: null,
-      currentLevel: 1
+      currentLevel: 1,
+      isHidden: true,
+      messageTitle: '',
+      message: ''
     }
+  }
+
+  hideModal = () => {
+    this.setState({
+      isHidden: true
+    })
   }
 
   setButtonDelay = () => {
@@ -37,25 +47,31 @@ class App extends Component {
 
   checkForMatch = () => {
     setTimeout(() => {
+      // execute if user wins game
        if ( this.state.currentLevel === 5 && this.state.userSequence.toString() === this.state.sequence.toString()){
          this.setState({
-           currentLevel: 1
-         }, () => {
-           alert('you win! all levels have been completed')
+           currentLevel: 1,
+           isHidden: false,
+           messageTitle: 'You win!',
+           message: 'Click to play again'
          })
       }
+      // execute if user wins level
       else if (this.state.userSequence.toString() === this.state.sequence.toString()) {
         this.setState({
-          currentLevel: this.state.currentLevel + 1
-        }, () => {
-          alert('you found a match! advance to the next level: ' + this.state.currentLevel)
-          this.playSequence()
+          currentLevel: this.state.currentLevel + 1,
+          isHidden: false,
+          messageTitle: 'Match!',
+          message: 'Click to advance to level ' + (this.state.currentLevel + 1)
         })
-        
       }
       else {
-        alert('whomp! click to try again')
-        this.playSequence()
+        // execute if user looses
+        this.setState({
+          isHidden: false,
+          messageTitle: 'Whomp!',
+          message: 'Click to try again'
+        })
       }
     }
     , 1000)
@@ -101,6 +117,12 @@ class App extends Component {
           <h1>Simon</h1>
         </header>
         <main>
+          {!this.state.isHidden && <Modal
+            messageTitle={this.state.messageTitle} 
+            message={this.state.message} 
+            currentLevel={this.state.currentLevel}
+            playSequence={this.playSequence}
+            hideModal={this.hideModal}/>}
           <Button 
             id={0}
             selectedNumber={this.state.selectedNumber}
