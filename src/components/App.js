@@ -6,11 +6,24 @@ class App extends Component {
     super(props)
     this.state = {
       sequence: [],
+      userSequence: [],
       selectedNumber: null
     }
   }
 
-  setDelay = () => {
+  setButtonDelay = () => {
+    setTimeout(() => this.setState({
+      selectedNumber: null
+    }), 500)
+  }
+
+  handleUserClick = (id) => {
+    this.setState({
+      selectedNumber: id
+    }, () => this.setButtonDelay())
+  }
+
+  setSequenceDelay = () => {
     for (let i = 0; i < this.state.sequence.length; i++){
       //sets time interval for button illumination
       setTimeout(() => this.setState({
@@ -33,7 +46,7 @@ class App extends Component {
     }
     this.setState({
       sequence: sequenceLevelOne
-    }, () => this.setDelay())
+    }, () => this.setSequenceDelay())
   }
 
   render() {
@@ -48,21 +61,25 @@ class App extends Component {
             id={0}
             selectedNumber={this.state.selectedNumber}
             className={'buttonTopLeft'}
+            handleUserClick={this.handleUserClick}
           />
           <Button
             id={1}
             selectedNumber={this.state.selectedNumber}
             className={'buttonTopRight'}
+            handleUserClick={this.handleUserClick}
           />
           <Button
             id={2}
             selectedNumber={this.state.selectedNumber}
             className={'buttonBottomLeft'}
+            handleUserClick={this.handleUserClick}
           />
           <Button
             id={3}
             selectedNumber={this.state.selectedNumber}
             className={'buttonBottomRight'}
+            handleUserClick={this.handleUserClick}
           />
         </main>
         <nav>
