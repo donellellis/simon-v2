@@ -13,7 +13,6 @@ class Button extends Component{
         if (this.props.id === this.props.selectedNumber){
             isIlluminated = true
         }
-        
         // const isIlluminated = this.props.id === this.props.slectedNumber
 
         return(

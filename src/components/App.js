@@ -20,10 +20,51 @@ class App extends Component {
   handleUserClick = (id) => {
     this.setState({
       selectedNumber: id
-    }, () => this.setButtonDelay())
+    }, () => this.addButtonToSequence())
   }
 
-  setSequenceDelay = () => {
+  addButtonToSequence = () => {
+    if (this.state.userSequence.length < this.state.sequence.length - 1){
+      this.state.userSequence.push(this.state.selectedNumber)
+      console.log('this is the user sequence: ' + this.state.userSequence + 'this is the computer sequence' + this.state.sequence)
+    }
+    else if (this.state.userSequence.length === this.state.sequence.length - 1){
+      this.state.userSequence.push(this.state.selectedNumber)
+      this.checkForMatch()
+    }
+    this.setButtonDelay()
+  }
+
+  checkForMatch = () => {
+    setTimeout(() => {
+      if (this.state.userSequence.toString() === this.state.sequence.toString()) {
+        alert('you found a match')
+      }
+      else {
+        alert('try again')
+      }
+    }
+    , 1000)
+  }
+
+  resetUserSequence = () => {
+    this.setState({
+      userSequence: []
+    })
+  }
+
+  playSequence = () => {
+    // selects 4 random numbers between 0 and 4 and adds to sequence
+    let sequenceLevelOne = []
+    for (let i = 0; i < 4; i++){
+      sequenceLevelOne.push(Math.floor((Math.random() * 4) + 0))
+    }
+    this.setState({
+      sequence: sequenceLevelOne
+    }, () => this.setSequenceDelay(this.resetUserSequence))
+  }
+
+  setSequenceDelay = (callback) => {
     for (let i = 0; i < this.state.sequence.length; i++){
       //sets time interval for button illumination
       setTimeout(() => this.setState({
@@ -35,18 +76,7 @@ class App extends Component {
         selectedNumber: null
       }), 1000 + (1000 * i) )
     }
-  }
-
- 
-  playSequence = () => {
-    // selects 4 random numbers between 0 and 4 and adds to sequence
-    let sequenceLevelOne = []
-    for (let i = 0; i < 4; i++){
-      sequenceLevelOne.push(Math.floor((Math.random() * 4) + 0))
-    }
-    this.setState({
-      sequence: sequenceLevelOne
-    }, () => this.setSequenceDelay())
+    callback()
   }
 
   render() {
