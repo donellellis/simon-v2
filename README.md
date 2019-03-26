@@ -7,7 +7,7 @@ Simon is a classic memory game first launched at Studio 54 in 1978. This groovy 
 To get started, navigate to http://simon-app.surge.sh/, click the play button and the game launches.
 The gameboard displays a sequence of random illuminated colors.
 
-![Simon UI](https://media.giphy.com/media/8FoLVPcuZgSWyMo6Qs/giphy.gif)
+![Simon UI](https://i.imgur.com/D2K20I0.png)
 
 Repeat the sequence by clicking the correct color buttons on the gameboard.
 
